@@ -367,6 +367,91 @@ figcaption {
   color: rgba(246, 243, 236, 0.68);
 }
 
+/* Sign-up form */
+.signup-card {
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 4px;
+  padding: 1.5rem 1.35rem 1.6rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+.signup-card h3 {
+  font-size: 1.2rem;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+}
+.signup-card .sub {
+  color: var(--muted);
+  font-size: 0.97rem;
+  margin-bottom: 1.25rem;
+}
+.signup-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+  margin-bottom: 0.35rem;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.65rem 0.75rem;
+}
+.field textarea { min-height: 5.5rem; resize: vertical; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  border-color: var(--gold);
+}
+.field .opt {
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted-2);
+}
+.signup-card .btn {
+  margin-top: 1.25rem;
+  cursor: pointer;
+  font: inherit;
+}
+.signup-note {
+  margin-top: 0.9rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.thanks-box {
+  display: none;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 4px;
+  padding: 1.5rem 1.35rem 1.6rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+.thanks-box h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 0.4rem; }
+.thanks-box p { color: var(--muted); }
+@media (min-width: 640px) {
+  .signup-grid { grid-template-columns: 1fr 1fr; }
+  .field.full { grid-column: 1 / -1; }
+}
+
 /* Footer */
 .site-footer {
   background: var(--paper);
@@ -442,6 +527,7 @@ figcaption {
     <nav class="primary" aria-label="Primary">
       <a href="#how">How it works</a>
       <a href="#samples">Sample alerts</a>
+      <a href="#signup">Sign up</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -525,7 +611,73 @@ figcaption {
     <div class="wrap">
       <p class="kicker">Contact</p>
       <h2 id="contact-title">Ask about BlockLine</h2>
-      <p class="intro">Call or email. There is no signup form on this page.</p>
+      <p class="intro">Sign up below and we will reach out about getting your morning alerts started — or just call or email.</p>
+
+      <div class="thanks-box" id="thanks" role="status">
+        <h3>You're on the list.</h3>
+        <p>Thanks for signing up. Your details just came through to the BlockLine inbox, and we will be in touch about next steps. If you need us sooner, call <a href="tel:+13053155556">(305) 315-5556</a>.</p>
+      </div>
+
+      <form class="signup-card" id="signup" action="https://formsubmit.co/blockline@themaporg.com" method="POST">
+        <h3>Sign up for BlockLine</h3>
+        <p class="sub">Tell us about your shop. This form sends your details to the BlockLine inbox — no payment, no commitment.</p>
+        <input type="hidden" name="_subject" value="New BlockLine sign-up from the website">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://blockline.themaporg.com/?welcome=1#contact">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="signup-grid">
+          <div class="field">
+            <label for="f-business">Business name</label>
+            <input id="f-business" name="Business name" type="text" required autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="Contact name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="Email" type="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone <span class="opt">(optional)</span></label>
+            <input id="f-phone" name="Phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="f-type">Type of business</label>
+            <select id="f-type" name="Business type" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>Salon</option>
+              <option>Barbershop</option>
+              <option>HVAC</option>
+              <option>Plumbing</option>
+              <option>Nails &amp; beauty</option>
+              <option>Auto detailing</option>
+              <option>Med spa</option>
+              <option>Other service business</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-area">Neighborhood or area</label>
+            <input id="f-area" name="Area" type="text" placeholder="e.g. Coral Gables" required>
+          </div>
+          <div class="field full">
+            <label for="f-watch">What should your alert watch?</label>
+            <select id="f-watch" name="Alert focus">
+              <option selected>Both pricing and review gaps</option>
+              <option>Pricing gaps</option>
+              <option>Review gaps</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="f-notes">Anything else? <span class="opt">(optional)</span></label>
+            <textarea id="f-notes" name="Notes"></textarea>
+          </div>
+        </div>
+        <button class="btn solid" type="submit">Sign up</button>
+        <p class="signup-note">Pricing is on request — we will go over rates when we talk. We reply from blockline@themaporg.com.</p>
+      </form>
+
       <div class="contact-grid">
         <div class="contact-item">
           <span class="lbl">Phone</span>
@@ -546,5 +698,13 @@ figcaption {
     <p>BlockLine is a service of The Map Organization</p>
   </div>
 </footer>
+<script>
+  if (new URLSearchParams(window.location.search).get("welcome") === "1") {
+    var t = document.getElementById("thanks");
+    var f = document.getElementById("signup");
+    if (t) { t.style.display = "block"; }
+    if (f) { f.style.display = "none"; }
+  }
+</script>
 </body>
 </html>
