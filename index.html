@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BlockLine — One morning alert for Miami service businesses</title>
+<meta name="description" content="BlockLine is a one-alert-per-morning local market intelligence service for small Miami service businesses. One morning alert flagging a pricing gap or a review gap, with one suggested action. A service of The Map Organization.">
+<link rel="canonical" href="https://blockline.themaporg.com/">
+<meta name="theme-color" content="#1B2A41">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BlockLine">
+<meta property="og:title" content="BlockLine — One morning alert for Miami service businesses">
+<meta property="og:description" content="One morning alert for Miami service businesses: a pricing gap or a review gap, with one suggested action. A service of The Map Organization.">
+<meta property="og:url" content="https://blockline.themaporg.com/">
+<meta property="og:image" content="https://blockline.themaporg.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BlockLine — One morning alert for Miami service businesses">
+<meta name="twitter:description" content="One morning alert for Miami service businesses: a pricing gap or a review gap, with one suggested action.">
+<meta name="twitter:image" content="https://blockline.themaporg.com/assets/og-image.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+@font-face {
+  font-family: Geist;
+  src: url("assets/fonts/Geist.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter Tight";
+  src: url("assets/fonts/InterTight.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --navy: #1B2A41;
+  --paper: #F6F3EC;
+  --gold: #C4A36A;
+  --gold-ink: #6F5728;
+  --gold-kicker: #8A7043;
+  --ink: #14181F;
+  --muted: #4A5160;
+  --muted-2: #5A6270;
+  --line: #D9D3C7;
+  --white: #ffffff;
+  --font-sans: Geist, "Segoe UI", system-ui, sans-serif;
+  --font-display: "Inter Tight", Geist, "Segoe UI", system-ui, sans-serif;
+  --wrap: 70rem;
+  --pad: clamp(1.25rem, 4.2vw, 2.25rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3, .word {
+  font-family: var(--font-display);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--navy);
+  text-wrap: balance;
+}
+h1 { margin: 0; }
+h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  margin: 0 0 0.75rem;
+}
+h3 { font-size: 1.05rem; margin: 0 0 0.35rem; letter-spacing: 0; }
+p { margin: 0 0 0.85rem; }
+p:last-child { margin-bottom: 0; }
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--navy);
+  color: var(--paper);
+  padding: 0.5rem 0.85rem;
+  z-index: 10;
+}
+.skip:focus {
+  left: var(--pad);
+  top: 0.5rem;
+}
+
+.wrap {
+  width: min(100% - (var(--pad) * 2), var(--wrap));
+  margin-inline: auto;
+}
+
+/* Header */
+.site-header {
+  background: var(--navy);
+  color: var(--paper);
+}
+.site-header .bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--paper);
+}
+.brand .mark { width: 2rem; height: 2rem; display: block; flex: 0 0 2rem; }
+.brand .word {
+  font-weight: 650;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  padding-left: 0.08em;
+  color: var(--paper);
+  line-height: 1;
+}
+nav.primary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.9rem;
+}
+nav.primary a {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.1rem;
+}
+nav.primary a:hover { border-bottom-color: var(--gold); color: #fff; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Hero */
+.hero {
+  background: var(--navy);
+  color: var(--paper);
+  padding: 2.25rem 0 3.5rem;
+}
+.hero .kicker {
+  margin: 0 0 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.hero h1 {
+  color: var(--paper);
+  font-size: clamp(2.05rem, 5.6vw, 3.55rem);
+  max-width: 16ch;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+.hero .rule {
+  width: 4.5rem;
+  height: 3px;
+  background: var(--gold);
+  margin: 1.35rem 0 1.25rem;
+  border: 0;
+}
+.hero .lede {
+  max-width: 38rem;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.5;
+  color: rgba(246, 243, 236, 0.86);
+  margin-bottom: 1.6rem;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+  padding: 0.75rem 1.15rem;
+  border-radius: 3px;
+  border: 1.5px solid var(--gold);
+  min-height: 2.85rem;
+}
+.btn.solid {
+  background: var(--gold);
+  color: var(--navy);
+}
+.btn.solid:hover { background: #d4b37a; border-color: #d4b37a; }
+.btn.ghost {
+  background: transparent;
+  color: var(--paper);
+}
+.btn.ghost:hover { background: rgba(196, 163, 106, 0.12); }
+.price-note {
+  margin: 1.15rem 0 0;
+  color: rgba(246, 243, 236, 0.72);
+  font-size: 0.95rem;
+}
+
+/* Sections */
+.section { padding: 3.25rem 0; }
+.section + .section { border-top: 1px solid var(--line); }
+.section .intro {
+  max-width: 40rem;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+}
+.kicker {
+  margin: 0 0 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-kicker);
+}
+
+/* How it works */
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.steps li {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 1.2rem 1.25rem 1.3rem;
+  border-radius: 2px;
+}
+.steps li::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--gold-kicker);
+  margin-bottom: 0.45rem;
+}
+.steps h3 { color: var(--navy); }
+.steps p { color: var(--muted); font-size: 1rem; }
+
+/* Samples */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+figure.card {
+  margin: 0;
+}
+figure.card img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(27, 42, 65, 0.16);
+  background: var(--navy);
+}
+.badge {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold-ink);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.55rem;
+  border-radius: 2px;
+  margin-bottom: 0.65rem;
+}
+figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #2A303A;
+}
+
+/* Split: who + pricing */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 1.35rem 1.35rem 1.45rem;
+  border-radius: 2px;
+}
+.panel p { color: var(--muted); }
+
+/* Contact */
+.contact-band {
+  background: var(--navy);
+  color: var(--paper);
+  padding: 3rem 0;
+}
+.contact-band h2,
+.contact-band .kicker { color: var(--gold); }
+.contact-band h2 { color: var(--paper); margin-bottom: 0.65rem; }
+.contact-band .intro { color: rgba(246, 243, 236, 0.78); margin-bottom: 1.5rem; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem 2rem;
+}
+.contact-item .lbl {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.contact-item a {
+  color: var(--paper);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid rgba(196, 163, 106, 0.45);
+  overflow-wrap: break-word;
+}
+.contact-item a:hover { border-bottom-color: var(--gold); }
+.contact-item .hint {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  color: rgba(246, 243, 236, 0.68);
+}
+
+/* Footer */
+.site-footer {
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  padding: 1.35rem 0 1.7rem;
+  color: var(--muted-2);
+  font-size: 0.92rem;
+}
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  align-items: baseline;
+}
+.site-footer .word {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  padding-left: 0.08em;
+  color: var(--navy);
+  font-weight: 650;
+}
+
+@media (max-width: 480px) {
+  .actions { width: min(100%, 24rem); }
+  .btn { width: 100%; }
+  .hero .kicker { letter-spacing: 0.1em; }
+}
+@media (max-width: 360px) {
+  nav.primary { gap: 0.25rem 0.6rem; }
+  nav.primary a { font-size: 0.82rem; }
+}
+@media (min-width: 640px) {
+  .steps { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .split { grid-template-columns: 1.2fr 0.8fr; gap: 1rem; }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 860px) {
+  .hero { padding: 3rem 0 4.25rem; }
+  .section { padding: 3.75rem 0; }
+  .cards { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .site-header .bar { padding: 1.1rem 0; }
+}
+
+@media print {
+  html, body { background: #fff; font-size: 11pt; }
+  .skip { display: none; }
+  .site-header, .hero, .contact-band {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .hero, .section, .contact-band { padding: 1.2rem 0; }
+  .section + .section { break-inside: avoid; }
+  figure.card { break-inside: avoid; }
+  .steps li, .panel { break-inside: avoid; }
+  nav.primary a { border: 0; }
+  a[href^="tel"], a[href^="mailto"] { text-decoration: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" id="top">
+      <svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="60" height="60" rx="10" fill="#F6F3EC"/>
+        <rect x="2" y="29" width="60" height="6" fill="#C4A36A"/>
+      </svg>
+      <span class="word">BLOCKLINE</span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#samples">Sample alerts</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <p class="kicker">Local market intelligence · Miami</p>
+      <h1 id="hero-title">One alert each morning for Miami service businesses.</h1>
+      <hr class="rule">
+      <p class="lede">Each morning, one alert — not a feed — flags a pricing gap or a review gap nearby, and includes one suggested action. You decide whether to use it.</p>
+      <div class="actions">
+        <a class="btn solid" href="tel:+13053155556">Call (305) 315-5556</a>
+        <a class="btn ghost" href="mailto:blockline@themaporg.com">Email blockline@themaporg.com</a>
+      </div>
+      <p class="price-note">Pricing on request.</p>
+    </div>
+  </section>
+
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <p class="kicker">How it works</p>
+      <h2 id="how-title">One morning alert. Not a daily feed.</h2>
+      <p class="intro">BlockLine is a local market intelligence service for small service businesses, starting in Miami. The format stays the same every day: one alert, one gap, one suggested action.</p>
+      <ol class="steps">
+        <li>
+          <h3>One alert, once in the morning</h3>
+          <p>You receive a single alert — not a dashboard and not a stream of posts. It arrives in the morning, and that is the day’s signal.</p>
+        </li>
+        <li>
+          <h3>A pricing gap or a review gap</h3>
+          <p>The alert flags one local gap: a price that sits out of line with nearby shops, or a review profile that is trailing comparable businesses.</p>
+        </li>
+        <li>
+          <h3>One suggested action</h3>
+          <p>Each alert includes one concrete next step. It is a suggestion, not a mandate. You decide whether to use it.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="samples" aria-labelledby="samples-title">
+    <div class="wrap">
+      <p class="kicker">Examples</p>
+      <h2 id="samples-title">Sample alerts</h2>
+      <p class="intro">These cards use fictional shops and example figures. They are labeled “Sample alert, example data.” They are not live alerts and not a promise of results.</p>
+      <div class="cards">
+        <figure class="card">
+          <div class="badge">Sample alert, example data</div>
+          <img src="assets/blockline-card-pricing.png" width="1080" height="1080" alt="Sample alert, example data. Pricing-gap card for a fictional Coral Gables salon, Fig and Runner Salon. Midweek blowout is posted $12 to $17 above nearby shops. Suggested action: test a Tuesday–Wednesday blowout at $55 for two weeks.">
+          <figcaption>Sample alert, example data. Fig &amp; Runner Salon is a fictional Coral Gables shop — not a real business. A BlockLine pricing-gap alert flags one local gap and one suggested action, once in the morning. Not a live alert and not a promise of results.</figcaption>
+        </figure>
+        <figure class="card">
+          <div class="badge">Sample alert, example data</div>
+          <img src="assets/blockline-card-review.png" width="1080" height="1080" alt="Sample alert, example data. Review-gap card for a fictional Miami HVAC shop, Trestle Air and Heat. The rating is solid; review count is the gap. Suggested action: after every completed weekday job this week, send a short follow-up asking for a Google review.">
+          <figcaption>Sample alert, example data. Trestle Air &amp; Heat is a fictional Miami HVAC shop — not a real business. A BlockLine review-gap alert flags one local gap and one suggested action, once in the morning. Not a live alert and not a promise of results.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="who" aria-labelledby="who-title">
+    <div class="wrap">
+      <div class="split">
+        <div class="panel">
+          <p class="kicker">Who it is for</p>
+          <h2 id="who-title">Built for small Miami service businesses</h2>
+          <p>BlockLine is for local shops that want a single, useful morning signal — salons, HVAC, and similar service businesses in Miami. It is not a social feed, and it is not a software dashboard.</p>
+        </div>
+        <div class="panel" id="pricing">
+          <p class="kicker">Pricing</p>
+          <h2>Pricing on request</h2>
+          <p>Rates are not published here. Call or email for details.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-band" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <p class="kicker">Contact</p>
+      <h2 id="contact-title">Ask about BlockLine</h2>
+      <p class="intro">Call or email. There is no signup form on this page.</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="lbl">Phone</span>
+          <a href="tel:+13053155556">(305) 315-5556</a>
+        </div>
+        <div class="contact-item">
+          <span class="lbl">Email</span>
+          <a href="mailto:blockline@themaporg.com">blockline@themaporg.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="word">BLOCKLINE</span>
+    <p>BlockLine is a service of The Map Organization</p>
+  </div>
+</footer>
+</body>
+</html>
